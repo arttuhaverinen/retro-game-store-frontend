@@ -13,7 +13,7 @@ const Navigation = () => {
 				<Navbar.Brand>
 					{" "}
 					<Nav.Link>
-						<Link className="links" to={"/retrostore"}>
+						<Link className="links" to={"/"}>
 							Koti
 						</Link>
 					</Nav.Link>

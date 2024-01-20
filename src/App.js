@@ -26,7 +26,7 @@ function App() {
 				{/*<Fireb />*/}
 				<Routes>
 					{/*<Route path="/" element={<ProductSearch />} />*/}
-					<Route path="/retrostore" element={<ProductsFound />} />
+					<Route path="/" element={<ProductsFound />} />
 					<Route path="/settings" element={<SettingsPage />} />
 					<Route path="/followedProducts" element={<FollowedProducts />} />
 					<Route path="/addProduct" element={<AddProductPage />} />
