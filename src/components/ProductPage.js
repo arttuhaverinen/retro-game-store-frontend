@@ -1,10 +1,8 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
+import React from "react";
+import { Container } from "react-bootstrap";
 
 const ProductPage = () => {
-  return (
-    <Container></Container>
-  )
-}
+	return <Container></Container>;
+};
 
-export default ProductPage
+export default ProductPage;

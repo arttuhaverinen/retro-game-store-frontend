@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Navigation from "./components/Navigation";
@@ -18,23 +18,34 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 import OwnProducts from "./components/OwnProducts";
 
+export const Appcontext = createContext(null);
+
 function App() {
+	const [appUserName, setAppUserName] = useState(
+		localStorage.getItem("username")
+	);
+	const [appJsonToken, setAppJsonToken] = useState(localStorage.getItem("jwt"));
+
 	return (
 		<Router>
-			<Container fluid className=" mainContainer">
-				<Navigation className="bg-success" />
-				{/*<Fireb />*/}
-				<Routes>
-					{/*<Route path="/" element={<ProductSearch />} />*/}
-					<Route path="/" element={<ProductsFound />} />
-					<Route path="/settings" element={<SettingsPage />} />
-					<Route path="/followedProducts" element={<FollowedProducts />} />
-					<Route path="/addProduct" element={<AddProductPage />} />
-					<Route path="/login" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/OwnProducts" element={<OwnProducts />} />
-				</Routes>
-				{/*<Footer className="bg-success" />*/}
+			<Container style={{ margin: "0px", padding: "0px" }} fluid className="">
+				<Appcontext.Provider
+					value={{ appUserName, setAppUserName, appJsonToken, setAppJsonToken }}
+				>
+					<Navigation className="bg-success" />
+
+					<Routes>
+						{/*<Route path="/" element={<ProductSearch />} />*/}
+						<Route path="/" element={<ProductsFound />} />
+						<Route path="/settings" element={<SettingsPage />} />
+						<Route path="/followedProducts" element={<FollowedProducts />} />
+						<Route path="/addProduct" element={<AddProductPage />} />
+						<Route path="/login" element={<LoginPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/OwnProducts" element={<OwnProducts />} />
+					</Routes>
+					{/*<Footer className="bg-success" />*/}
+				</Appcontext.Provider>
 			</Container>
 		</Router>
 	);
